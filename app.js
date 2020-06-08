@@ -60,7 +60,7 @@ const handleClick = event => {
   var hasWon = checkWin(currentMarker);
 
   if (hasWon){
-    console.log("Winner!")
+    setTimeout(() => {alert('We have a winner!')}, 100);
   } else {
     switchTurn();
   }
