@@ -32,3 +32,13 @@ body {
   font-size: 80px;
   text-align: center;
 }
+
+.playerOne {
+  font-size: 30px;
+  text-align: center;
+}
+
+.playerTwo{
+  font-size: 30px;
+  text-align: center;
+}

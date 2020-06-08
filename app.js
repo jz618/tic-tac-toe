@@ -14,6 +14,7 @@ const winningCombos = [
 const allCells = document.querySelectorAll('.cell');
 let isXTurn;
 
+
 const startGame = () => {
   isXTurn = true;
   allCells.forEach(cell => 
@@ -58,5 +59,6 @@ const checkWin = (marker) => (
     ))
   ))
 )
+
 
 startGame();
