@@ -49,8 +49,19 @@ const startGame = () => {
   ))
 };
 
-const handleClick = cell => {
+const handleClick = event => {
+  // store target
+  // check for turn
+  // add marker in target based on turn
+  
+  const cell = event.target;
+  let currentMarker = isXTurn ? xClass : oClass;
+
+  addMarker(cell, currentMarker);
   console.log('clicked');
+}
+
+const addMarker = (cell, marker) => {
 }
 
 startGame();
