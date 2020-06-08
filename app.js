@@ -51,14 +51,18 @@ const startGame = () => {
 const handleClick = event => {
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
-
   addMarker(cell, currentMarker);
-  console.log('clicked');
+  switchTurn();
 }
 
 const addMarker = (cell, marker) => {
   cell.classList.add(marker);
   cell.innerHTML = marker;
+}
+
+const switchTurn = () => {
+  // change boolean of isXTurn
+  isXTurn = !isXTurn;
 }
 
 startGame();
