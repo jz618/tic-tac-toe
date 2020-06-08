@@ -81,6 +81,10 @@ const checkDraw = () => {
    // if there is X or O isn't in class list
      // set check to false
      // return the check
+  // ^ can utilize every
+
+  // for every cell in allCells
+   // check to class list to see if contains X or O
 }
 
 const checkWin = (marker) => (
