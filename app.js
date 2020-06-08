@@ -2,7 +2,8 @@
   create a variable that adds a X class
   create a variable that adds a O class
   declare winning conditions
-  declare boolen for checking turn 
+  declare boolean for checking turn
+  store all the cells here
 
   need initialize game function
     listen for a click and only listen for one click <- apply to call the cells
@@ -16,7 +17,8 @@
 
   need to place a marker down
     check for who's turn
-      need a class X or O and put text down
+      need a new class to cell with add
+      specify content with .innerHTML
   
   need to switch turns
   need to check win
@@ -35,3 +37,21 @@ const winningCombos = [
   [1, 5, 9],
   [3, 5, 7]
 ];
+
+const allCells = document.querySelectorAll('.cell');
+console.log(allCells);
+let isXTurn;
+
+const startGame = () => {
+  isXTurn = true;
+  allCells.forEach(cell => 
+    cell.addEventListener('click', handleClick, {once: true}
+  ))
+};
+
+const handleClick = cell => {
+  console.log('clicked');
+}
+
+startGame();
+
