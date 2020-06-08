@@ -51,10 +51,20 @@ const startGame = () => {
 const handleClick = event => {
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
+  
+  if (!checkDraw()){
+    addMarker(cell, currentMarker);
+    switchTurn();
+  } else {
+    alert('The game is a draw!');
+  }
 
-  addMarker(cell, currentMarker);
-  switchTurn();
-  checkDraw();
+  // check for win with current marker
+   // alert X or Y is the winner
+  // check for draw
+   // alert is a draw
+  // otherwise
+   // switch turns
 }
 
 const addMarker = (cell, marker) => {
@@ -67,12 +77,21 @@ const switchTurn = () => {
 }
 
 const checkDraw = () => {
-  // set check to false
+  // set check to true;
   // iterate over allCells
    // if there is X or O isn't in class list
-     // set check to true
+     // set check to false
      // return the check
 }
+
+const checkWin = (marker) => {
+  // track the indices in allCells with the current marker
+
+  // iterate through winning combos
+   // if the tracker contains a winning combo
+    // return true
+
+  // return false
 
 startGame();
 
