@@ -27,18 +27,17 @@
 const xClass = 'X';
 const oClass = 'O';
 const winningCombos = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
   [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7]
+  [2, 5 ,8],
+  [0, 4, 8],
+  [2, 4, 6]
 ];
 
 const allCells = document.querySelectorAll('.cell');
-console.log(allCells);
 let isXTurn;
 
 const startGame = () => {
@@ -85,13 +84,15 @@ const checkDraw = () => {
 }
 
 const checkWin = (marker) => {
-  // track the indices in allCells with the current marker
+  // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value - use to iterate through winning combinations array
+    // The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value - use to iterate through array in winning combinations (this will provide the indexes we need to look at for allCells)
+      // check whether marker exists within the current cell
 
-  // iterate through winning combos
-   // if the tracker contains a winning combo
-    // return true
+  // for each of the combos in the winning combinations array
+   // for every index noted in that combo
+     // check whether the current marker exists within allCells[index]
 
-  // return false
+}
 
 startGame();
 
