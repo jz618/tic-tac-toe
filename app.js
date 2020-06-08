@@ -57,13 +57,15 @@ const handleClick = event => {
   // otherwise
    // switch turns
   addMarker(cell, currentMarker);
-  var hasWon = checkWin(currentMarker);
 
-  if (hasWon){
+  if (checkWin(currentMarker)){
     setTimeout(() => {alert('We have a winner!')}, 100);
+  } else if (checkDraw()){
+    setTimeout(() => {alert('We have a draw!')}, 100);
   } else {
     switchTurn();
   }
+
 }
 
 const addMarker = (cell, marker) => {
@@ -75,7 +77,7 @@ const switchTurn = () => {
   isXTurn = !isXTurn;
 }
 
-const checkDraw = () => {
+const checkDraw = () => (
   // set check to true;
   // iterate over allCells
    // if there is X or O isn't in class list
@@ -85,7 +87,12 @@ const checkDraw = () => {
 
   // for every cell in allCells
    // check to class list to see if contains X or O
-}
+
+  [...allCells].every(cell => (
+    cell.classList.contains(xClass) || cell.classList.contains(oClass)
+  ))
+)
+
 
 const checkWin = (marker) => (
   // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value - use to iterate through winning combinations array
