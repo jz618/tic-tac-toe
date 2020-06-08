@@ -1,29 +1,3 @@
-/*
-  create a variable that adds a X class
-  create a variable that adds a O class
-  declare winning conditions
-  declare boolean for checking turn
-  store all the cells here
-
-  need initialize game function
-    listen for a click and only listen for one click <- apply to call the cells
-    set turn to X
-
-  need to handle click
-    place marker down
-    check win
-    check draw
-    switch turns
-
-  need to place a marker down
-      need a new class to cell with add
-      specify content with .innerHTML
-  
-  need to switch turns
-  need to check win
-  need to check for draw
-*/
-
 const xClass = 'X';
 const oClass = 'O';
 const winningCombos = [
@@ -50,12 +24,7 @@ const startGame = () => {
 const handleClick = event => {
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
-  // check for win with current marker
-   // alert X or Y is the winner
-  // check for draw
-   // alert is a draw
-  // otherwise
-   // switch turns
+
   addMarker(cell, currentMarker);
 
   if (checkWin(currentMarker)){
@@ -65,7 +34,6 @@ const handleClick = event => {
   } else {
     switchTurn();
   }
-
 }
 
 const addMarker = (cell, marker) => {
@@ -78,30 +46,12 @@ const switchTurn = () => {
 }
 
 const checkDraw = () => (
-  // set check to true;
-  // iterate over allCells
-   // if there is X or O isn't in class list
-     // set check to false
-     // return the check
-  // ^ can utilize every
-
-  // for every cell in allCells
-   // check to class list to see if contains X or O
-
   [...allCells].every(cell => (
     cell.classList.contains(xClass) || cell.classList.contains(oClass)
   ))
 )
 
-
 const checkWin = (marker) => (
-  // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value - use to iterate through winning combinations array
-    // The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value - use to iterate through array in winning combinations (this will provide the indexes we need to look at for allCells)
-      // check whether marker exists within the current cell
-
-  // for each of the combos in the winning combinations array
-   // for every index noted in that combo
-     // check whether the current marker exists within allCells[index]
   winningCombos.some(combo => (
     combo.every(index => (
       allCells[index].classList.contains(marker)
@@ -110,4 +60,3 @@ const checkWin = (marker) => (
 )
 
 startGame();
-
