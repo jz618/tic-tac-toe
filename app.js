@@ -51,8 +51,10 @@ const startGame = () => {
 const handleClick = event => {
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
+
   addMarker(cell, currentMarker);
   switchTurn();
+  checkDraw();
 }
 
 const addMarker = (cell, marker) => {
@@ -61,8 +63,15 @@ const addMarker = (cell, marker) => {
 }
 
 const switchTurn = () => {
-  // change boolean of isXTurn
   isXTurn = !isXTurn;
+}
+
+const checkDraw = () => {
+  // set check to false
+  // iterate over allCells
+   // if there is X or O isn't in class list
+     // set check to true
+     // return the check
 }
 
 startGame();
