@@ -16,7 +16,6 @@
     switch turns
 
   need to place a marker down
-    check for who's turn
       need a new class to cell with add
       specify content with .innerHTML
   
@@ -50,10 +49,6 @@ const startGame = () => {
 };
 
 const handleClick = event => {
-  // store target
-  // check for turn
-  // add marker in target based on turn
-  
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
 
@@ -62,6 +57,8 @@ const handleClick = event => {
 }
 
 const addMarker = (cell, marker) => {
+  cell.classList.add(marker);
+  cell.innerHTML = marker;
 }
 
 startGame();
