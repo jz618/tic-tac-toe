@@ -50,20 +50,20 @@ const startGame = () => {
 const handleClick = event => {
   const cell = event.target;
   let currentMarker = isXTurn ? xClass : oClass;
-  
-  if (!checkDraw()){
-    addMarker(cell, currentMarker);
-    switchTurn();
-  } else {
-    alert('The game is a draw!');
-  }
-
   // check for win with current marker
    // alert X or Y is the winner
   // check for draw
    // alert is a draw
   // otherwise
    // switch turns
+  addMarker(cell, currentMarker);
+  var hasWon = checkWin(currentMarker);
+
+  if (hasWon){
+    console.log("Winner!")
+  } else {
+    switchTurn();
+  }
 }
 
 const addMarker = (cell, marker) => {
@@ -83,7 +83,7 @@ const checkDraw = () => {
      // return the check
 }
 
-const checkWin = (marker) => {
+const checkWin = (marker) => (
   // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value - use to iterate through winning combinations array
     // The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value - use to iterate through array in winning combinations (this will provide the indexes we need to look at for allCells)
       // check whether marker exists within the current cell
@@ -91,8 +91,12 @@ const checkWin = (marker) => {
   // for each of the combos in the winning combinations array
    // for every index noted in that combo
      // check whether the current marker exists within allCells[index]
-
-}
+  winningCombos.some(combo => (
+    combo.every(index => (
+      allCells[index].classList.contains(marker)
+    ))
+  ))
+)
 
 startGame();
 
